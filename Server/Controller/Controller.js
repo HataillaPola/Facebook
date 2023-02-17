@@ -41,7 +41,9 @@ exports.ReadProfile=(req, res)=>{
 exports.DeleteUser = (Req, Res) => {
     
     let Id =  Req.params.id;
-    let Query = {_id: Id};
+    // let Query = {_id: Id};
+    let Query = {_id : Id};
+    // test = Req.body
 
     CreateModel.remove(Query,(Error, Data)=>{
         if(Error){

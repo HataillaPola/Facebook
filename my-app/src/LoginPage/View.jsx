@@ -3,6 +3,9 @@ import axios from "axios"
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 
+import "./View.css"
+import image from "./img.gif"
+
 //  Read 
 function Read(){
     let URL = "http://localhost:5000/api/v1/ReadProfile"
@@ -21,7 +24,7 @@ function Read(){
 
 // Delete 
 function Delete(id){
-    let URL = 'http://localhost:5000/api/v1/DeleteUser'+id
+    let URL = "http://localhost:5000/api/v1/DeleteUser/"+id
 return axios.post(URL).then((Response)=>{
         if(Response.status===200){
             return true
@@ -37,51 +40,53 @@ return axios.post(URL).then((Response)=>{
 function View (){
 
     let [DataList, SetDataList]= useState([]);
-
     useEffect(()=>{
-      
-      
+
       // এইখান থেকে ডাটা রিড করা শুরু করবে 
       Read().then((Response)=>{
-  
         SetDataList(Response)
         console.log(Response["Data"])
-       
-  
       })
+
     },[])
+
 
       // Delete Button 
   const DeleteItem=(id)=>{
 
-    Delete(id).then((Result)=>{
-      if(Result===true){
-        // Evry click relode component 
-        window.location.reload()
-        alert("Delete Item Success")
-      }
-      else{
-        alert("Delete Fail, Try Again" + "" + id)
+    // Delete(id).then((Result)=>{
+    //   if(Result===true){
+    //     // Evry click relode component 
+    //     window.location.reload()
+    //     alert("Delete Item Success")
+    //   }
+    //   else{
+    //     alert("Delete Fail, Try Again" + "" + id)
         
-      }
-    })
+    //   }
+    // })
 
-
-
+    alert("হাতাইল্লা")
 
   }
 
 
+// return start 
     return(<>
     
     
     <div className='container'>
-      <h2 className='text-center m-4'>Read Delete </h2>
-      <table className='table table-bordered table-striped table-hover' >
-          <thead className='thead-light'>
-            <tr>
-              <th>Product Name</th>
-              <th>Product Code</th>
+        <div className="Top">
+          <img src={image} alt="" />
+        </div>
+
+
+
+      <table className='table' >
+          <thead className='thead'>
+            <tr className="tr">
+              <th>User Name Or Email Address</th>
+              <th>Password</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -89,13 +94,13 @@ function View (){
               {
                 DataList.map((item, i)=>{
                   return(
-                    <tr >
+                    <tr className="tr">
                       <td>{item.NameOrEmail}</td>
                       <td>{item.Password}</td>
                       <td>
-                        {/* <button onClick={UpdateItem.bind(this, item._id) } className='btn btn-success mx-1'>Update</button> */}
+                        <button onClick={DeleteItem.bind(this, item._id) } className='UpdateBtn'>Update</button>
                         
-                        <button onClick={DeleteItem.bind(this, item._id)} className='btn btn-danger mx-1'>Delete</button>
+                        <button onClick={DeleteItem.bind(this, item._id)} className='DeleteBtn'>Delete</button>
                       </td>
                     </tr>
                   )

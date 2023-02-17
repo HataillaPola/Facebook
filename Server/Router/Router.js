@@ -11,7 +11,7 @@ const ProfileController = require("../Controller/Controller.js");
 
 
  // User Login Api 
- Router.post("/DeleteUser", ProfileController.DeleteUser)
+ Router.post("/DeleteUser/:id", ProfileController.DeleteUser)
 
 
 

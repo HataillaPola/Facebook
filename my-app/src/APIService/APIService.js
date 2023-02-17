@@ -21,7 +21,7 @@ return axios.post(URL, PostBody).then((Response)=>{
 
 // Read Profile 
 export function Read(){
-    let URL = "/api/v1/ReadProuct"
+    let URL = "/api/v1/ReadProuct/:id"
     return axios.get(URL).then((Response)=>{
             if(Response.status===200){
                 return Response["data"].Data

@@ -9,5 +9,60 @@
 
 .Top img{
     max-width: 100%;
-    max-height: 800px
+    height: 800px
+}
+
+.table{
+    width: 100%;
+    border: 1px solid #333;
+    background-color: red;
+    color: white;
+    padding: 50px;
+}
+.thead{
+    background-color:#33bc37;
+    padding: 20px;
+
+}
+.tr{
+    border: 1px solid #333;
+    /* padding: 20px; */
+}
+.tr th{
+    border: 1px solid #333;
+    padding: 20px;
+
+}
+
+.tr td{
+    border: 1px solid #333;
+    padding: 10px;
+
+}
+
+.DeleteBtn{
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: red;
+    box-shadow: 0px 0px 10px 1px white;
+    transition: 500ms;
+}
+.UpdateBtn{
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #33bc37;
+    background-color: red;
+    box-shadow: 0px 0px 10px 1px #33bc37;
+    transition: 500ms;
+}
+.DeleteBtn:hover{
+    background-color: white;
+    color: black;
+}
+.UpdateBtn:hover{
+    background-color: #33bc37;
+    color: black;
 }
