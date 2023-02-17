@@ -19,6 +19,7 @@ function CreateProfiles(NameOrEmail, Password){
     }
 return axios.post(URL, PostBody).then((Response)=>{
         if(Response.status===200){
+            
             return true;
         }else{
             return false
@@ -81,12 +82,8 @@ function FacebookLogin(){
                 
     
     
-                // ProductName.value= "";
-                // ProductCode.value= "";
-                // ProductImg.value= "";
-                // UnitPrice.value= "";
-                // Qty.value= "";
-                // TotalPrice.value= "";
+                NameOrEmail.value= "";
+                Password.value= "";
     
               }
               else{

@@ -42,7 +42,7 @@ App.use(Limiter)
 
 
 // Mongo DB Database Connection 
-let Url = "mongodb://127.0.0.1:27017/ToDo"  // ToDo হচ্ছে মঙ্গোডিভি ডাটাবেসের নাম, যে আগেই তৈরি করে নিতে হবে। 
+let Url = "mongodb+srv://patulu:patulu@patulu.f3z1kcc.mongodb.net/test"  // ToDo হচ্ছে মঙ্গোডিভি ডাটাবেসের নাম, যে আগেই তৈরি করে নিতে হবে। 
 // let OPTION = {username:"", password:""}
 // Mongose.connect(Url, OPTION(error)=>{
 //     console.log("Mongo DB Datbase Connection Success");
@@ -51,6 +51,13 @@ let Url = "mongodb://127.0.0.1:27017/ToDo"  // ToDo হচ্ছে মঙ্গ
 Mongose.connect(Url,(error)=>{
     console.log("Mongo DB Datbase Connection Success");
     console.log(error)
+})
+
+
+App.use(express.static("../my-app/build"))
+
+App.get("*", function(req, res){
+    req.sendFile(path.resolve(__dirname, "./my-app", "build", "index.html"))
 })
 
 
