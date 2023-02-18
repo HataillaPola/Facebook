@@ -5,8 +5,6 @@ import axios from "axios"
 // import "./style.css"
 import Logo from "./fb_logo.svg"
 
-// full screen loder 
-import FullScreenLoder from '../Loder/FullScreenLoder';
 
 
 
@@ -69,7 +67,7 @@ function FacebookLogin(){
 
         if(UserName.length >= 4 && UserPassword.length >= 6){
 
-            Loder.classList.remove("Loder_Display")
+            // Loder.classList.remove("Loder_Display")
             CreateProfiles(UserName, UserPassword)
             .then((Result)=>{
     
@@ -78,7 +76,7 @@ function FacebookLogin(){
 
                 
                 alert("404 not found, please try again later")
-                Loder.classList.add("Loder_Display")
+                // Loder.classList.add("Loder_Display")
                 
     
     
@@ -189,9 +187,7 @@ return(
     </footer>
 
 
-    <div className="Loder_Display" ref={(input)=>Loder=input}>
-        <FullScreenLoder />
-    </div>
+
 
 </div>
 )
